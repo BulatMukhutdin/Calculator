@@ -6,6 +6,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private val calculator = Calculator()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -15,7 +17,7 @@ class MainActivity : AppCompatActivity() {
             val num2 = second.text.toString().toIntOrNull()
 
             if (num1 != null && num2 != null) {
-                result.text = "${num1 + num2}"
+                result.text = "${calculator.sum(num1, num2)}"
             } else {
                 result.text = ""
             }
