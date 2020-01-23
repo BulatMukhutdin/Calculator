@@ -2,6 +2,20 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+
+apply from: '../scripts/jacoco.gradle'
+
+def keystorePropertiesFile = rootProject.file("signing/keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+project.ext {
+    KEYSTORE_STORE_FILE = rootProject.file(keystoreProperties['storeFile'])
+    KEYSTORE_STORE_PASSWORD = keystoreProperties['storePassword']
+    KEYSTORE_KEY_ALIAS = keystoreProperties['keyAlias']
+    KEYSTORE_KEY_PASSWORD = keystoreProperties['keyPassword']
+}
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -21,13 +35,29 @@ android {
         targetCompatibility = '1.8'
     }
 
-    buildTypes {
+    signingConfigs {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            storeFile KEYSTORE_STORE_FILE
+            storePassword KEYSTORE_STORE_PASSWORD
+            keyAlias KEYSTORE_KEY_ALIAS
+            keyPassword KEYSTORE_KEY_PASSWORD
         }
     }
 
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+
+        }
+
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            testCoverageEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
 }
 
 dependencies {

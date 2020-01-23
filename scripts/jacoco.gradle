@@ -1,0 +1,56 @@
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = '0.8.5'
+}
+
+tasks.withType(Test) {
+    jacoco.includeNoLocationClasses = true
+}
+
+def mainSrc = "$project.projectDir/src/main/java"
+
+def fileFilter = [
+        "**/*Activity*"
+]
+
+def debugTree = fileTree(dir: "${buildDir}/tmp/kotlin-classes/debug", includes: ["**/*Activity*"])
+def releaseTree = fileTree(dir: "${buildDir}/tmp/kotlin-classes/release", excludes: fileFilter)
+
+def sourceDirs = files([mainSrc])
+def classDirs = files([debugTree, releaseTree])
+def execData = fileTree(dir: "$buildDir", includes: ["jacoco/testReleaseUnitTest.exec", "outputs/code_coverage/debugAndroidTest/connected/*.ec"])
+
+task testCoverageReport(type: JacocoReport, dependsOn: ['testReleaseUnitTest', 'connectedAndroidTest']) {
+    sourceDirectories.from = sourceDirs
+    classDirectories.from = classDirs
+    executionData.from = execData
+
+    reports {
+        html.enabled = true
+    }
+}
+
+task testCoverageVerification(type: JacocoCoverageVerification, dependsOn: ['testCoverageReport']) {
+    sourceDirectories.from = sourceDirs
+    classDirectories.from = classDirs
+    executionData.from = execData
+
+    violationRules {
+        failOnViolation true
+
+        rule {
+            element = "PACKAGE"
+
+            limit {
+                counter = "INSTRUCTION"
+                minimum = BigDecimal.valueOf(0.8)
+            }
+
+            limit {
+                counter = "BRANCH"
+                minimum = BigDecimal.valueOf(0.5)
+            }
+        }
+    }
+}
