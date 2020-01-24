@@ -30,6 +30,6 @@ class MainActivityTest {
             .perform(click())
 
         onView(withId(R.id.result))
-            .check(matches(withText("1110")))
+            .check(matches(withText("888")))
     }
 }
