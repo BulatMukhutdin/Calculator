@@ -31,7 +31,7 @@ task testCoverageReport(type: JacocoReport) {
     }
 }
 
-task testCoverageVerification(type: JacocoCoverageVerification, dependsOn: ['testCoverageReport']) {
+task testCoverageVerification(type: JacocoCoverageVerification) {
     sourceDirectories.from = sourceDirs
     classDirectories.from = classDirs
     executionData.from = execData
@@ -49,7 +49,7 @@ task testCoverageVerification(type: JacocoCoverageVerification, dependsOn: ['tes
 
             limit {
                 counter = "BRANCH"
-                minimum = BigDecimal.valueOf(0.5)
+                minimum = BigDecimal.valueOf(0.6)
             }
         }
     }
