@@ -7,4 +7,7 @@ class Calculator {
 
     fun subtract(num1: Int, num2: Int) =
         num1 - num2
+
+    fun multiply(num1: Int, num2: Int) =
+        num1 * num2
 }
