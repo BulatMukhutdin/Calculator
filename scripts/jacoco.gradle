@@ -49,7 +49,7 @@ task testCoverageVerification(type: JacocoCoverageVerification) {
 
             limit {
                 counter = "BRANCH"
-                minimum = BigDecimal.valueOf(0.6)
+                minimum = BigDecimal.valueOf(0.5)
             }
         }
     }
