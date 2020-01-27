@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "calculator-14d81",
+  "private_key_id": "7a50d51b947664b47607bf69c629d2d82314d1b9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDlhj+Yhe8FBQ6x\no8+lULv2m0HrGFWqzxjDUO0l7nU6LUMwuRpUra+eQ/6iZVrdZGYEGjMtwEa/3Okq\nIz0AFI0INqMcoKZP15ZmPGRQGeAqlj85LpVK2WfThYR8Zdklsuui14iNAtFt3rlW\ntGpVbgcopIfeq0tcbERbKCPnaHl9lItz+rNf+LMfNsiJ5t4vLHOowaDqqyAE4qC5\nSgGzmLgxyUBF/sb1jHrIB83t9kRKJG5xjkd0p57+j4z2+ldnmakd/qCWUWeeYLVO\n9XlgtHb6DBFkdwpdRbhZxjAVGZf7nTpaX5+5PxDn1AmBnHj7FT9vMYsqC15W8oe8\nL36E0ngVAgMBAAECggEABnCisStfiP2wK1t5dIh+4Ez756uaSmge0urJiffBB0ha\nKxr5JP4YlYa6isua5eeuwG0MbuYHC37DILZgvEisqlnUxXVbz+qweB7iq6gGNPux\nO3AAqrB4ls6XaIwiWx9EOEtMNAoBCVBR//T2SikDqhLFEyzYOPglX4S7+SlicJu1\nnFWsik4mDXJqAjVQ7um/t965Gv3ZxayUblTX4Oy/yWAJR9QVgHBHZvofwZnULKQr\nHZ29IFDGnqpGlr0WJYLTDd8kAVRqufQIbvOSWDEwZXkbsGJ7eLBnx8t4jjGoty2Z\nUOV7K6PeaqQpTHlus9vymgDLV+7aiPoUIhuATX+UIwKBgQDyjmrueUjEfRJ7nS3a\nkLTuGk5Hpn7oAbpKtcEtKyAsTWjRk45RkLO56nJi3xePUgd+4Lur7rkzY3HYybMT\ngAVxrLm8RvftVJjjYJAjDXfoZGOccUBjFKKgdvnoNUw+1WLqdHKV5HmKm03C9ae9\ney6Tv2H74288JOVVZvpkwDapnwKBgQDyPuxvxZLDLw8ZWa+M/vdsFgjZjLY3qSxb\n07KozeZoMDqoxSL72lTXtUyk2VQZfUBO2DFJ9Ob7K/zWBzlb/8K60H2j/rrCszPe\nmjDnQvF7iRTQ565PCqfOypvIrMuHHTpEOkY4zPJYWvgeURqZNhIulRhkdSavD+F3\nc8U6TICpywKBgDEc8T30RO20PYfWHbDB2EDWBr+vUMb9gpEaGFFjCBKwYeb9r7WI\nTTv54stuTMDyZR4ltxprLgjfu++fd6kdJP0NclZTMGRX2tU/ei/+zCa8HQdSTy1A\nwmUncha4pAWdA3hht8nuB0YviCFPyHUvehDkkZyFQsK03dLbFRxNZ0QVAoGBAMFJ\nu9YjS0s6DU4o5Y4XEszHeCA9ylb3QVGzxOY0BBg2A1gOlC9osjG7k4AleJkt+1Xt\n4sYkBvl6y67q7LWfiX0ORnHIGrSn0EdZuJOOMqhjZJybf9XJpsO1nj+swGj6xTcT\nWFySCvy8+SUXiaWeIzvP8zqUz1z3yutJEKHH0RGpAoGBAKjYRA2/fblYLxPtkK+r\nEv/DS9XFYtp1Iqz1GDY0ULDrEGy09dNpXOmy+6P92fELIbe1LThTlBdxEzptRZnA\nt4utFC6gAAPXmq8MW9uvI3zILTy8igvJpFbKd7UkSawL043HUy5upgvJ6NhJX93I\nHTqeRDm6lmCQLwq9u5mGwDqy\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-app-distribution@calculator-14d81.iam.gserviceaccount.com",
+  "client_id": "103269334126349451191",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-app-distribution%40calculator-14d81.iam.gserviceaccount.com"
+}
