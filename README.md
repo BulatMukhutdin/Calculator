@@ -12,3 +12,7 @@ Bitrise
 TeamCity
 
 [![Build status](http://localhost:8111/guestAuth/app/rest/builds/buildType:(id:Calculator_Primary)/statusIcon.svg)](http://localhost:8111/viewType.html?buildTypeId=Calculator_Primary)
+
+CircleCI
+
+[![CircleCI](https://circleci.com/gh/BulatMukhutdin/Calculator/tree/master.svg?style=svg)](https://circleci.com/gh/BulatMukhutdin/Calculator/tree/master)
