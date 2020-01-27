@@ -8,3 +8,7 @@ Nevercode
 Bitrise
 
 [![Build Status](https://app.bitrise.io/app/6761e618f0b9b058/status.svg?token=fZGD--bq42fAuog0ToJrlw&branch=master)](https://app.bitrise.io/app/6761e618f0b9b058)
+
+TeamCity
+
+[![Build status](http://localhost:8111/guestAuth/app/rest/builds/buildType:(id:Calculator_Primary)/statusIcon.svg)](http://localhost:8111/viewType.html?buildTypeId=Calculator_Primary)
