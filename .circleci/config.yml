@@ -30,6 +30,7 @@ jobs:
           command: ./gradlew testRelease
       - run:
           name: Start emulator
+          background: true
           command: |
             avdmanager=$ANDROID_HOME/tools/bin/avdmanager
             sdkmanager=$ANDROID_HOME/tools/bin/sdkmanager
@@ -37,6 +38,9 @@ jobs:
             adb=$ANDROID_HOME/platform-tools/adb
 
             name=CI_primary_29_x86_64
+
+            echo "export LD_LIBRARY_PATH"
+            export LD_LIBRARY_PATH=${ANDROID_HOME}/emulator/lib64:${ANDROID_HOME}/emulator/lib64/qt/lib
 
             echo "downloading system-images"
             $sdkmanager "system-images;android-29;google_apis_playstore;x86_64"
