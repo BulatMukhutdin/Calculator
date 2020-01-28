@@ -29,46 +29,17 @@ jobs:
           name: Unit tests
           command: ./gradlew testRelease
       - run:
-          name: Start emulator
-          background: true
-          command: |
-            avdmanager=$ANDROID_HOME/tools/bin/avdmanager
-            sdkmanager=$ANDROID_HOME/tools/bin/sdkmanager
-            emulator=$ANDROID_HOME/tools/emulator
-            adb=$ANDROID_HOME/platform-tools/adb
-
-            name=CI_primary_29_x86_64
-
-            echo "export LD_LIBRARY_PATH"
-            export LD_LIBRARY_PATH=${ANDROID_HOME}/emulator/lib64:${ANDROID_HOME}/emulator/lib64/qt/lib
-
-            echo "downloading system-images"
-            $sdkmanager "system-images;android-29;google_apis_playstore;x86_64"
-
-            # chech available AVDs
-            emulators="$($avdmanager list avd)"
-
-            if [[ $emulators != *$name* ]]; then
-              echo "creating new AVD"
-              echo no | $avdmanager --verbose create avd --name $name --device "pixel" --package "system-images;android-29;google_apis_playstore;x86_64" --abi "x86_64"
-            fi
-
-            echo "starting AVD"
-            $emulator -avd $name -no-snapshot -wipe-data -accel auto -no-boot-anim -delay-adb &
-
-            echo "waining for boot"
-            $adb wait-for-device
-
-            echo "booted"
-      - run:
-          name: Instrumented tests
-          command: ./gradlew connectedAndroidTest
-      - run:
-          name: Close emulator
-          command: adb -s emulator-5554 emu kill
-      - run:
           name: Test coverage report
           command: ./gradlew testCoverageReport
       - store_artifacts:
           path: app/build/reports/jacoco/testCoverageReport/html/
           destination: jacoco
+      - run:
+          name: Assemble signed apk
+          command: ./gradlew assembleRelease
+      - store_artifacts:
+          path: app/build/outputs/apk/release/*.apk
+          destination: .
+      - run:
+          name: Deploy to Firebase App distribution
+          command: ./gradlew appDistributionUploadRelease
