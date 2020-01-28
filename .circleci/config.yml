@@ -31,10 +31,10 @@ jobs:
       - run:
           name: Start emulator
           command: |
-            avdmanager=$ANDROID_SDK_ROOT/tools/bin/avdmanager
-            sdkmanager=$ANDROID_SDK_ROOT/tools/bin/sdkmanager
-            emulator=$ANDROID_SDK_ROOT/tools/emulator
-            adb=$ANDROID_SDK_ROOT/platform-tools/adb
+            avdmanager=$ANDROID_HOME/tools/bin/avdmanager
+            sdkmanager=$ANDROID_HOME/tools/bin/sdkmanager
+            emulator=$ANDROID_HOME/tools/emulator
+            adb=$ANDROID_HOME/platform-tools/adb
 
             name=CI_primary_29_x86_64
 
