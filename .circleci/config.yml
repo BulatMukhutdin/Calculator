@@ -35,6 +35,7 @@ jobs:
             avdmanager=$ANDROID_HOME/tools/bin/avdmanager
             sdkmanager=$ANDROID_HOME/tools/bin/sdkmanager
             emulator=$ANDROID_HOME/tools/emulator
+            adb=$ANDROID_HOME/platform-tools/adb
 
             name=CI_primary_29_x86_64
 
@@ -53,16 +54,18 @@ jobs:
             fi
 
             echo "starting AVD"
-            $emulator -avd $name -no-snapshot -wipe-data -accel auto -no-boot-anim -delay-adb
-      - run:
-          name: Wait for emulator
-          command: $ANDROID_HOME/platform-tools/adb wait-for-device
+            $emulator -avd $name -no-snapshot -wipe-data -accel auto -no-boot-anim -delay-adb &
+
+            echo "waining for boot"
+            $adb wait-for-device
+
+            echo "booted"
       - run:
           name: Instrumented tests
           command: ./gradlew connectedAndroidTest
       - run:
           name: Close emulator
-          command: $ANDROID_HOME/platform-tools/adb -s emulator-5554 emu kill
+          command: adb -s emulator-5554 emu kill
       - run:
           name: Test coverage report
           command: ./gradlew testCoverageReport
