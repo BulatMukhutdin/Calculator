@@ -60,7 +60,6 @@ android {
             firebaseAppDistribution {
                 serviceCredentialsFile = "signing/firebase-app-distribution-key.json"
                 groups = "testers"
-                apkPath = "app.apk"
             }
         }
     }
