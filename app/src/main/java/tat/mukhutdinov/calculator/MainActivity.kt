@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
             val num1 = first.text.toString().toIntOrNull()
             val num2 = second.text.toString().toIntOrNull()
 
+
             if (num1 != null && num2 != null) {
                 result.text = "${calculator.subtract(num1, num2)}"
             } else {
