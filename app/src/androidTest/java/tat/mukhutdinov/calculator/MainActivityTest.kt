@@ -25,7 +25,6 @@ class MainActivityTest {
         onView(withId(R.id.second))
             .perform(typeText("111"), closeSoftKeyboard())
 
-
         onView(withId(R.id.calculate))
             .perform(click())
 
