@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 result.text = ""
             }
+
         }
     }
 }
