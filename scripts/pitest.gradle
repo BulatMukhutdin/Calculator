@@ -3,7 +3,7 @@ apply plugin: 'pl.droidsonroids.pitest'
 pitest {
     targetClasses = ['tat.mukhutdinov.calculator.*']
     excludedClasses = ['tat.mukhutdinov.calculator.MainActivity*']
-    mutationThreshold = 50
+    mutationThreshold = 60
     threads = 4
     pitestVersion = '1.4.6'
     failWhenNoMutations = false
