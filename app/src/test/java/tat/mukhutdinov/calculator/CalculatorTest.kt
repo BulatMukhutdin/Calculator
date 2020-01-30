@@ -11,6 +11,6 @@ class CalculatorTest {
 
         val actual = calculator.sum(1, 1)
 
-        assertEquals(13, actual)
+        assertEquals(14, actual)
     }
 }
