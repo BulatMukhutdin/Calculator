@@ -14,8 +14,8 @@ def fileFilter = [
         "**/*Activity*"
 ]
 
-def debugTree = fileTree(dir: "${buildDir}/tmp/kotlin-classes/debug", includes: ["**/*Activity*"])
-def releaseTree = fileTree(dir: "${buildDir}/tmp/kotlin-classes/release", excludes: fileFilter)
+def debugTree = fileTree(dir: "$buildDir/tmp/kotlin-classes/debug", includes: ["**/*Activity*"])
+def releaseTree = fileTree(dir: "$buildDir/tmp/kotlin-classes/release", excludes: fileFilter)
 
 def sourceDirs = files([mainSrc])
 def classDirs = files([debugTree, releaseTree])

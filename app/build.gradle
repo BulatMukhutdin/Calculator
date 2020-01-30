@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.firebase.appdistribution'
 
 apply from: '../scripts/jacoco.gradle'
+apply from: '../scripts/pitest.gradle'
 
 def keystorePropertiesFile = rootProject.file("signing/keystore.properties")
 def keystoreProperties = new Properties()

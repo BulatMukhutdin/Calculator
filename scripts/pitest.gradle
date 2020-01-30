@@ -1,10 +1,11 @@
-apply plugin: "pl.droidsonroids.pitest"
+apply plugin: 'pl.droidsonroids.pitest'
 
 pitest {
-    targetClasses = ['tat.mukhutdinov.currencyexchange.*']
-    excludedClasses = ['tat.mukhutdinov.currencyexchange.exchangerate.model.ExchangeRate$Creator']
+    targetClasses = ['tat.mukhutdinov.calculator.*']
+    excludedClasses = ['tat.mukhutdinov.calculator.MainActivity*']
+    mutationThreshold = 50
     threads = 4
-    pitestVersion = '1.4.0'
+    pitestVersion = '1.4.6'
     failWhenNoMutations = false
     outputFormats = ['HTML']
     timestampedReports = false
