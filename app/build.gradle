@@ -54,6 +54,12 @@ android {
             }
         }
     }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "yanwa-${variant.buildType.name}-${defaultConfig.versionName}-${defaultConfig.versionCode}.apk"
+        }
+    }
 }
 
 dependencies {
