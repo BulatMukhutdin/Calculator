@@ -53,6 +53,7 @@ android {
                 groups = "testers"
             }
         }
+
     }
 }
 
