@@ -6,17 +6,6 @@ apply plugin: 'com.google.firebase.appdistribution'
 apply from: '../scripts/jacoco.gradle'
 apply from: '../scripts/pitest.gradle'
 
-def keystorePropertiesFile = rootProject.file("signing/keystore.properties")
-def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-
-project.ext {
-    KEYSTORE_STORE_FILE = rootProject.file(keystoreProperties['storeFile'])
-    KEYSTORE_STORE_PASSWORD = keystoreProperties['storePassword']
-    KEYSTORE_KEY_ALIAS = keystoreProperties['keyAlias']
-    KEYSTORE_KEY_PASSWORD = keystoreProperties['keyPassword']
-}
-
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -38,17 +27,18 @@ android {
 
     signingConfigs {
         release {
-            storeFile KEYSTORE_STORE_FILE
-            storePassword KEYSTORE_STORE_PASSWORD
-            keyAlias KEYSTORE_KEY_ALIAS
-            keyPassword KEYSTORE_KEY_PASSWORD
+            if (project.hasProperty("isCI")) {
+                storeFile rootProject.file(project.ext["storeFile"])
+                storePassword project.ext["storePassword"]
+                keyAlias project.ext["keyAlias"]
+                keyPassword project.ext["keyPassword"]
+            }
         }
     }
 
     buildTypes {
         debug {
             testCoverageEnabled true
-
         }
 
         release {
@@ -59,7 +49,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
             firebaseAppDistribution {
-                serviceCredentialsFile = "signing/firebase-app-distribution-key.json"
+                serviceCredentialsFile = "firebase-app-distribution-key.json"
                 groups = "testers"
             }
         }
